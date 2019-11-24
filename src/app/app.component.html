@@ -1,0 +1,19 @@
+<nav style="margin-bottom:20px;" class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">TINY URL</span>
+</nav>
+<div class="container">
+    <div class="form-group">
+        <label class="label-align" for="url">
+            Enter URL to shorten!
+            <input style="height:30px;" [formControl]="form_url" class="form-control" id="url" name="url" placeholder="url" type="text"
+                [(ngModel)]="urlText">
+        </label>
+        <button type="button" class="btn btn-outline-secondary btn-align" (click)="makeTiny($event)" [disabled]="!form_url.valid">Make TINYURL</button>
+    </div>
+    <div *ngIf="showResult" class="alert alert-primary">
+        <b>{{tinyUrl}}</b>
+        <br>
+        <small>[
+                <a (click)="goToLink(tinyUrl)">Open in new tab</a> ]</small>
+    </div>
+</div>
